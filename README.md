@@ -31,3 +31,31 @@ MYSQL_RANDOM_ROOT_PASSWORD=true
 This base template should get you running with most PHP applications. The PHP extensions: gd, iconv & pdo (mysql) are installed from the start, should you need to you can configure more extensions in the file `docker/php/Dockerfile`.
 
 Now just add your code to the `src` folder.
+
+## Running a Laravel app
+
+Before Getting Started, run the command `docker-compose run composer composer create-project --prefer-dist laravel/laravel .` to install the latest version of Laravel.
+
+Then update the file `docker/caddy/Caddyfile` to point the root to the public directory
+
+```
+0.0.0.0
+
+root /var/www/html/public
+
+fastcgi / app:9000 php {
+	root /var/www/html/public
+}
+
+rewrite {
+    regexp .*
+    ext /
+    to /index.php?{query}
+}
+
+gzip
+
+tls off
+```
+
+Don't forget to update your applications `src/.env` file to match the database configuration values you set in `docker/db/.env`.
