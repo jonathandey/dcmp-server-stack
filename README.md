@@ -1,4 +1,4 @@
-# DCMP
+# DCMP Stack
 
 A Docker, Caddy (v1), Mariadb & PHP-FPM starting template for your PHP projects
 
