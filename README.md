@@ -16,7 +16,7 @@ See the [Caddy V1 documentation](https://caddyserver.com/v1/docs) for further co
 
 ## Configuring the database
 
-The default database credentials are copied from the file `ocker/db/.env.example` during the first step of Getting Started.
+The default database credentials are copied from the file `docker/db/.env.example` during the first step of Getting Started.
 You can change the values to suit your project. More information about these values can be found at the [Mariadb docker hub page](https://hub.docker.com/_/mariadb)
 
 ```
