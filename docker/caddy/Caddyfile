@@ -1,0 +1,17 @@
+0.0.0.0
+
+root /var/www/html
+
+fastcgi / app:9000 php {
+	root /var/www/html
+}
+
+rewrite {
+    regexp .*
+    ext /
+    to /index.php?{query}
+}
+
+gzip
+
+tls off
